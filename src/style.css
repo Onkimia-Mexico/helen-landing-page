@@ -1,0 +1,891 @@
+/* =====================================================
+   Root variables & base typography
+   Defines global fonts used across the platform
+   ===================================================== */
+
+:root {
+  --font-primary: 'Montserrat', system-ui, sans-serif;
+  --font-secondary: 'Archivo', system-ui, sans-serif;
+
+  font-family: var(--font-primary);
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =====================================================
+   Global behavior
+   ===================================================== */
+
+/* Smooth scroll for anchor navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reset base body layout */
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+/* =====================================================
+   Header / Navigation
+   Fixed header with brand and navigation links
+   ===================================================== */
+
+.header {
+  box-sizing: border-box;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 5rem;
+  background: #303AF2;
+  color: #EAF3F9;
+
+  z-index: 9999;
+  isolation: isolate; /* prevents blending issues with parallax elements */
+}
+
+/* Navigation links */
+nav a {
+  margin-left: 3rem;
+  color: #EAF3F9;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1em;
+}
+
+nav a:hover {
+  color: #535bf2;
+}
+
+/* =====================================================
+   Brand (logo + text)
+   ===================================================== */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand img {
+  height: 30px;
+  width: auto;
+}
+
+.brand-text {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* =====================================================
+   Lists & custom bullets
+   Used in About / Features sections
+   ===================================================== */
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Standard bullet list */
+.bullets li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-secondary);
+}
+
+.bullets li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  color: #000000;
+}
+
+/* Feature-specific bullet list (smaller, softer) */
+.bullets-features li {
+  text-align: left;
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
+
+  font-family: var(--font-secondary);
+  font-size: 0.80em;
+  color: #475569;
+}
+
+.bullets-features li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  color: #000000;
+}
+
+/* =====================================================
+   Buttons (base styles)
+   Individual components may override these
+   ===================================================== */
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+
+  background-color: #5351df;
+  cursor: pointer;
+
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* =====================================================
+   App wrapper
+   ===================================================== */
+
+#app {
+  width: 100%;
+}
+
+/* =====================================================
+   Hero Section
+   Primary entry point of the landing experience
+   ===================================================== */
+
+.hero {
+  background: #EAF3F9;
+  color: #21214E;
+  min-height: calc(100vh - 80px); /* Full viewport minus fixed header */
+  display: flex;
+  align-items: center;
+  overflow: hidden; /* Contains parallax background */
+}
+
+/* ----------------  Hero layout container ---------------- */
+
+.hero-container {
+  display: flex;
+  width: 100%;
+  max-width: 1900px; /* Intentionally wider for visual impact */
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  align-items: center;
+  z-index: 5;
+}
+
+/* ----------------  Left column – headline & value proposition ---------------- */
+
+.hero-left {
+  flex: 1;
+  text-align: left;
+  padding-right: 4rem;
+}
+
+.hero-left h1 {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.hero-left p {
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* ---------------- Hero actions (CTA buttons) ---------------- */
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-primary {
+  text-decoration: none;
+  background: #303AF2;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.btn-secondary {
+  text-decoration: none;
+  background: transparent;
+  color: #21214E;
+  border: 1px solid #21214E;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: #232ed1;
+}
+
+.btn-secondary:hover {
+  background: rgba(33, 33, 78, 0.05);
+}
+
+/* ---------------- Right column – vertical mockup carousel ---------------- */
+
+.hero-right {
+  flex: 1;
+  height: 550px; /* Visible carousel window */
+  display: flex;
+  justify-content: center;
+}
+
+.vertical-slider {
+  position: relative;
+  height: 100%;
+  padding: 0 80px;
+  overflow: hidden;
+
+  /* Soft fade at top and bottom */
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 15%,
+    black 90%,
+    transparent
+  );
+}
+
+.vertical-track {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: scroll-vertical 20s linear infinite;
+}
+
+/* Pause animation on hover for detailed inspection */
+.vertical-slider:hover .vertical-track {
+  animation-play-state: paused;
+}
+
+.v-mockup {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+
+.v-mockup:hover {
+  transform: scale(1.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);
+}
+
+/* ---------------- Vertical scrolling animation ---------------- */
+
+@keyframes scroll-vertical {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+
+/* ---------------- Parallax background ---------------- */
+
+.hero-bg {
+  position: absolute;
+  right: 0;
+  width: 35%;
+  height: 80%;
+  object-fit: cover;
+  opacity: 0.3;
+  border-radius: 10px 0 0 1500px;
+  z-index: 0;
+}
+
+/* ---------------- Responsive adjustments ---------------- */
+
+@media (max-width: 992px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-left {
+    padding-right: 0;
+    margin-bottom: 3rem;
+  }
+
+  .hero-right {
+    height: 400px;
+    width: 100%;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+}
+
+/* =====================================================
+   Features Section
+   Highlights clinical and operational capabilities
+   ===================================================== */
+
+
+.features {
+  padding: 6rem 4rem;
+  background:#EAF3F9;
+  color: #0f172a;
+}
+
+/* ---------------- Section Header ---------------- */
+
+.features-header {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto 3rem;
+}
+
+.features-header h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.features-header p {
+  font-family: 'Archivo', sans-serif;
+  color: #475569;
+}
+
+/* --------------- Features grid layout ---------------- */
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---------------- Feature cards ---------------- */
+
+.feature-clinical-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(8, 58, 242, 0.4);
+}
+
+.feature-ops-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(153, 153, 255, 0.9);
+}
+
+.feature-clinical-card,
+.feature-ops-card {
+  height: 180px; 
+  position: relative;
+  perspective: 1000px;
+  transition: box-shadow 0.35s ease;
+}
+
+.feature-clinical-card:hover {
+  box-shadow: 0 8px 20px rgba(8, 58, 242, 0.55); /* ~20% more */
+}
+
+.feature-ops-card:hover {
+  box-shadow: 0 10px 25px rgba(153, 153, 255, 1); 
+}
+
+/* ---------------- Feature icon ---------------- */
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 0.7rem;
+  border-radius: 10px;
+  background-color: #e6f4f6; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.feature-icon i {
+  font-size: 24px;
+  color: #085B6D; 
+  line-height: 1;
+}
+
+/* ---------------- Optional feature image (ERP / Odoo logo) ---------------- */
+
+.feature-image {
+
+  width: 90%;
+  max-width: 90px;
+  height: auto;
+  display: block;
+  margin-inline: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* ---------------- Flip interaction --------------------------
+Click-based card flip for extended information ---------------- */
+
+.flip {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.45s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.flip.is-flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  background: #ffffff; 
+  padding: 0.1rem;
+}
+
+/* ---------------- Flip back content ---------------- */
+
+.flip-back p {
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.80em;
+  color: #475569;
+}
+
+.hint {
+  margin-top: 0.1rem;
+  font-size: 0.6em;
+  opacity: 0.7;
+}
+
+/* =====================================================
+   About Section
+   ===================================================== */
+
+/* Main About section container */
+.about {
+  padding: 4rem 5rem;
+  background: #EAF3F9;
+  color: #1a1a1a;
+}
+
+/* Inner layout container */
+.about-inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Text content container */
+.about-content {
+  flex: 1;
+  min-width: 300px; /* Prevents text from collapsing on smaller screens */
+}
+
+/* Section title */
+.about h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Paragraph text */
+.about p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* ---------------- Icon Bullet List ---------------- */
+
+/* Custom bullet list with icons */
+.icon-bullets {
+  list-style: none; /* Remove default bullets */
+  padding: 0;
+  margin-top: 20px;
+}
+
+/* Individual bullet item */
+.icon-bullets li {
+  display: flex;
+  align-items: flex-start; /* Align icon with first text line */
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+/* Icon wrapper (SVG or image icons) */
+.li-icon {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+/* Icon font (if using icon fonts instead of images) */
+.icon-bullets li i {
+  font-size: 1.2rem;
+  color: #2b3fd8; /* Brand blue */
+  flex-shrink: 0;
+}
+
+/* Bullet text */
+.icon-bullets span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* ---------------- Clients Carousel ---------------- */
+
+/* Horizontal scrolling logo carousel */
+.clients-slider {
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0;
+  position: relative;
+}
+
+/* Track that scrolls continuously */
+.slider-track {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  animation: scroll 20s linear infinite;
+}
+
+/* Default logo styling */
+.slider-track img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Larger logos (special cases) */
+.slider-track img.big-logo {
+  height: 110px;
+}
+
+/* Hover effect on logos */
+.slider-track img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Continuous scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------------- Slogan / Visual ---------------- */
+
+/* Slogan image */
+.about-slogan {
+  padding: 0 60px;
+  width: 300px;
+  max-width: 70%;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 768px) {
+  .about-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-slogan {
+    width: 280px;
+    margin-bottom: 2rem;
+  }
+}
+
+/* ========================================
+ Contact 
+=========================================== */
+
+/* Main contact section container */
+.contact {
+  position: relative; /* Required for positioning the parallax background */
+  padding: 7rem 5rem;
+  background: #EAF3F9;
+  color: #1a1a1a;
+  overflow: hidden; /* Prevents background overflow */
+}
+
+/* Decorative parallax background element */
+.contact-bg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40%;
+  height: 60%;
+  object-fit: cover;
+  opacity: 0.2;
+  border-radius: 0 1500px 10px 0;
+  z-index: 0; /* Always behind the content */
+}
+
+/* Internal layout: two-column grid */
+.contact-wrapper {
+  position: relative;
+  z-index: 1; /* Ensures content stays above the background */
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Text block */
+.contact-info h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* Contact form container */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 2.5rem;
+  border-radius: 22px;
+}
+
+/* Inputs and textarea */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Archivo', sans-serif;
+  font-size: 1.05rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 14px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0f172a;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* Placeholder styling */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+/* Focus state */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  box-shadow: 0 0 0 3px rgba(48, 58, 242, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Textarea specific rules */
+.contact-form textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+/* Submit button */
+.contact-form button {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  background: #ffffff;
+  color: #303AF2;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Button hover */
+.contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* ==============================
+ Footer 
+ ================================*/
+
+.footer {
+  background-color: #21214E;
+  color: #e5e7eb;
+  padding: 3rem 4rem 1.5rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+  gap: 2rem;
+}
+
+.footer-brand strong {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+}
+
+.footer-brand p {
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.9rem;
+  color: #9ca3af;
+  max-width: 300px;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  border-top: 1px solid #1f2933;
+  padding-top: 1rem;
+}
+
+/* Imagen Logo */
+.footer-info {
+  width: 350px;
+  display: block;
+  max-width: 100%;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-list li {
+  margin: 0;
+}
+
+.footer-list a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-list a:hover {
+  text-decoration: underline;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #e5e7eb;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.footer-social i {
+  font-size: 18px;
+  flex-shrink: 0;
+  line-height: 1;
+  color: #e5e7eb;
+}
+
+.footer-contact-list a,
+.footer-contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: #e5e7eb;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.footer-contact-list i {
+  font-size: 18px;
+  line-height: 1;
+  margin-top: 2px; /* alinea con texto largo */
+  flex-shrink: 0;
+  color: #e5e7eb;
+}
+
+.footer-contact-list span {
+  line-height: 1.4;
+}
+
+
+
