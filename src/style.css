@@ -513,7 +513,7 @@ Click-based card flip for extended information ---------------- */
 
 /* Main About section container */
 .about {
-  padding: 4rem 5rem;
+  padding: 4rem 1.5rem;
   background: #EAF3F9;
   color: #1a1a1a;
 }
@@ -524,6 +524,8 @@ Click-based card flip for extended information ---------------- */
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
+  max-width: 1200px;   /* o 1280px / 1400px según tu diseño */
+  margin: 0 auto;      /* CENTRA horizontalmente */
 }
 
 /* Text content container */
