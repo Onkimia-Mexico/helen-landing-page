@@ -94,7 +94,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     <!-- Decorative parallax background -->
     <img
       ref="contactBg"
-      src="../assets/background.png"
+      src="../assets/background.webp"
       class="contact-bg"
       alt=""
       aria-hidden="true"
