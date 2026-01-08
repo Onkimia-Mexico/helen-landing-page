@@ -12,7 +12,7 @@
     <!-- Brand / Logo -->
     <div class="brand">
       <img
-        src="../assets/logo.png"
+        src="../assets/logo.webp"
         alt="Helen MS logo"
       />
       <span class="brand-text">Helen MS</span>

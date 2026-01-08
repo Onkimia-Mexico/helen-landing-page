@@ -149,7 +149,7 @@
             </div>
             <h3>ERP para clínicas</h3>
             <img
-              src="../assets/Odoo.png"
+              src="../assets/Odoo.webp"
               alt="ERP para clínicas"
               class="feature-image"
             />

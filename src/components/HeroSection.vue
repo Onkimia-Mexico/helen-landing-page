@@ -12,9 +12,9 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 /* ---------------- Assets ---------------- */
 /* Platform mockups used in the carousel */
-import mockLogin from '../assets/mockup login.png'
-import mockClinical from '../assets/mockup exp clin.png'
-import mockCalendar from '../assets/mockup salas.png'
+import mockLogin from '../assets/mockup login.webp'
+import mockClinical from '../assets/mockup exp clin.webp'
+import mockCalendar from '../assets/mockup salas.webp'
 
 /* ---------------- Carousel Data ---------------- */
 /* Base mockup list */
@@ -53,7 +53,7 @@ onUnmounted(() => {
     <!-- Decorative parallax background -->
     <img
       ref="heroBg"
-      src="../assets/background.png"
+      src="../assets/background.webp"
       alt=""
       class="hero-bg"
       aria-hidden="true"

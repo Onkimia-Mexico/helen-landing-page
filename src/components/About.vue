@@ -10,16 +10,16 @@
 
 /* ---------------- Assets ---------------- */
 /* Client logos used in the infinite carousel */
-import logoOnkimia from '../assets/onkimia-logo.png'
-import logoICAN from '../assets/ICAN.png'
-import logoEndos from '../assets/endos.png'
-import logoCuidare from '../assets/cuidare.png'
+import logoOnkimia from '../assets/onkimia-logo.webp'
+import logoICAN from '../assets/LOGO-ICAN.webp'
+import logoEndos from '../assets/endos.webp'
+import logoCuidare from '../assets/cuidare.webp'
 
 /* ---------------- Carousel Data ---------------- */
 /* Base logo list */
 const logos = [
   { src: logoOnkimia, big: false },
-  { src: logoICAN, big: false },
+  { src: logoICAN, big: true },
   { src: logoEndos, big: true },
   { src: logoCuidare, big: true }
 ]
@@ -35,7 +35,7 @@ const logosDuplicated = [...logos, ...logos]
 
       <!-- Visual slogan / supporting illustration -->
       <img
-        src="../assets/slogan.png"
+        src="../assets/slogan.webp"
         alt="Slogan Helen MS"
         class="about-slogan"
       />

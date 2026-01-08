@@ -13,7 +13,7 @@
       <!-- Brand / Logo -->
       <div class="footer-col footer-logo">
         <img
-          src="../assets/Logotipo2.png"
+          src="../assets/Logotipo2.webp"
           alt="Helen MS"
           class="footer-info"
         />
