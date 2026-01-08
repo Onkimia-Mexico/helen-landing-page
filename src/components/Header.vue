@@ -27,8 +27,30 @@
       <a href="#contacto">Agendar demo</a>
     </nav>
 
+    <!-- Hamburger -->
+    <button
+      class="hamburger"
+      @click="menuOpen = !menuOpen"
+      aria-label="Toggle menu"
+    >
+      <span :class="{ open: menuOpen }"></span>
+      <span :class="{ open: menuOpen }"></span>
+      <span :class="{ open: menuOpen }"></span>
+    </button>
   </header>
+  
+  <!-- Mobile menu -->
+  <div class="mobile-menu" v-if="menuOpen">
+    <a href="#nosotros" @click="menuOpen = false">Nosotros</a>
+    <a href="#servicios" @click="menuOpen = false">Servicios</a>
+    <a href="#contacto" @click="menuOpen = false">Contacto</a>
+  </div>
 </template>
 
+<script setup>
 
+import { ref } from 'vue'
+const menuOpen = ref(false)
+
+</script>
 

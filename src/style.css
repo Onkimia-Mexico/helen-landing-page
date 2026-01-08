@@ -173,6 +173,91 @@ button:focus-visible {
 }
 
 /* =====================================================
+   Hamburger menu
+   ===================================================== */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: #EAF3F9;
+  transition: all 0.3s ease;
+}
+
+/* Animation */
+.hamburger span.open:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger span.open:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger span.open:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* =====================================================
+   Mobile menu
+   ===================================================== */
+
+.mobile-menu {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  width: auto;
+  background: #303AF2;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  z-index: 9998;
+}
+
+.mobile-menu a {
+  color: #EAF3F9;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.75rem 0;
+}
+
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0 1rem;
+    height: auto;
+    min-height: 56px;
+  }
+
+  /* Hide navigation links on mobile */
+  nav {
+    display: none;
+  }
+
+  .brand img {
+    height: 26px;
+  }
+
+  .brand-text {
+    font-size: 1rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+
+/* =====================================================
    Hero Section
    Primary entry point of the landing experience
    ===================================================== */
@@ -327,24 +412,95 @@ button:focus-visible {
 
 /* ---------------- Responsive adjustments ---------------- */
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
+
+  /* -------- Hero container -------- */
+
+  .hero {
+    min-height: auto;
+    padding: 4rem 0 3rem;
+    position: relative;
+  }
+
   .hero-container {
     flex-direction: column;
+    padding: 0 1.25rem;
     text-align: center;
   }
 
+  /* -------- Left content -------- */
+
   .hero-left {
     padding-right: 0;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 
-  .hero-right {
-    height: 400px;
-    width: 100%;
+  .hero-left h1 {
+    font-size: 1.9rem;
+    line-height: 1.2;
   }
+
+  .hero-left p {
+    font-size: 1rem;
+  }
+
+  /* -------- CTA buttons -------- */
 
   .hero-actions {
-    justify-content: center;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+
+  .hero-actions a {
+    text-align: center;
+  }
+
+  /* -------- Right visual -------- */
+
+  .hero-right {
+    height: 100px;
+  }
+
+  .vertical-slider {
+    mask-image: none;
+    height: 100%;
+    padding: 0;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .vertical-track {
+    gap: 1.25rem;
+    animation: none;
+  }
+
+  .vertical-track > :nth-child(n+4) {
+    display: none;
+  }
+
+  .v-mockup {
+    max-width: 260px;
+    scroll-snap-align: center;
+  }
+
+  .v-mockup:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* -------- Background -------- */
+
+  .hero-bg {
+    width: 100%;
+    height: 100%;
+    right: auto;
+    left: 0;
+    top: 0;
+    border-radius: 0;
+    opacity: 0.12;
+    z-index: 0;
   }
 }
 
@@ -372,6 +528,12 @@ button:focus-visible {
   font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   margin-bottom: 0.5rem;
+}
+
+.features-grid h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  margin: 0.5rem 0 1rem;
 }
 
 .features-header p {
@@ -452,6 +614,7 @@ button:focus-visible {
   height: auto;
   display: block;
   margin-inline: auto;
+  margin-bottom: 1rem;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -505,6 +668,101 @@ Click-based card flip for extended information ---------------- */
   margin-top: 0.1rem;
   font-size: 0.6em;
   opacity: 0.7;
+}
+
+/* =====================================================
+   Features – Mobile responsive
+   ===================================================== */
+
+@media (max-width: 768px) {
+  .features {
+    padding: 3rem 4rem;
+  }
+
+  .features-header {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .features-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .features-grid h3 {
+    font-size: 0.60rem;
+    text-align: center;
+  }
+
+  .features-grid {
+    margin-top: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    column-gap: 4rem;;
+    justify-items: center;
+  }
+
+  .feature-clinical-card,
+  .feature-ops-card {
+    height: 100px;
+    width: 120%;
+    max-width: 130px;
+    padding: 0.6rem 1rem;
+    
+  }
+
+  .feature-icon {
+    width: 30px;
+    height: 50px;
+  }
+
+  .feature-icon i {
+    font-size: 12px;
+  }
+
+  .feature-image {
+    max-width: 30px;
+  }
+
+  .flip-back {
+    justify-content: center;
+    align-items: stretch;
+    text-align: center;
+    padding: 0rem;
+    width: 100%;
+  }
+  .flip-back > * {
+    width: 100%;
+  }
+
+  .flip-back p {
+    font-size: 0.45em;
+    margin: 0;
+  }
+
+  .hint {
+  font-size: 0.4em;
+  opacity: 0.7;
+}
+
+/* Usar bullets reales solo en mobile */
+  .flip-back .bullets-features {
+    list-style: disc;
+    
+    padding-left: 0.3rem;
+    margin: 0;
+  }
+
+  .flip-back .bullets-features li {
+    padding-left: 0;
+    position: static;
+    font-size: 0.45em;
+    line-height: 1.2;
+  }
+
+  .flip-back .bullets-features li::before {
+    content: none;
+  }
+
 }
 
 /* =====================================================
@@ -651,14 +909,57 @@ Click-based card flip for extended information ---------------- */
 /* ---------------- Responsive ---------------- */
 
 @media (max-width: 768px) {
-  .about-inner {
-    flex-direction: column;
-    text-align: center;
+
+  /* Reduce vertical padding */
+  .about {
+    padding: 3rem 1.25rem;
   }
 
+  /* Improve text readability */
+  .about p {
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* Headings slightly smaller */
+  .about h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Icon bullet list tuning */
+  .icon-bullets li {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .li-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon-bullets span {
+    font-size: 0.95rem;
+  }
+
+  /* Clients carousel */
+  .slider-track {
+    gap: 1.2rem;
+    animation-duration: 25s; /* slower = calmer on mobile */
+  }
+
+  .slider-track img {
+    height: 40px;
+  }
+
+  .slider-track img.big-logo {
+    height: 70px;
+  }
+
+  /* Slogan image */
   .about-slogan {
-    width: 280px;
-    margin-bottom: 2rem;
+    padding: 0;
+    width: 220px;
   }
 }
 
@@ -782,6 +1083,55 @@ Click-based card flip for extended information ---------------- */
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
 }
 
+/* =====================================================
+   Contact – Mobile responsive
+   ===================================================== */
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 4rem 3.25rem;
+  }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .contact-info h2 {
+    font-size: 1.8rem;
+  }
+
+  .contact-info p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Make form breathe on mobile */
+  .contact-form {
+    padding: 1.75rem;
+    border-radius: 18px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 1rem;
+    padding: 0.9rem 1rem;
+  }
+
+  /* Button full width for better UX */
+  .contact-form button {
+    align-self: stretch;
+    text-align: center;
+  }
+
+  /* Tone down decorative background */
+  .contact-bg {
+    width: 70%;
+    height: 40%;
+    opacity: 0.12;
+  }
+}
+
 /* ==============================
  Footer 
  ================================*/
@@ -888,6 +1238,68 @@ Click-based card flip for extended information ---------------- */
 .footer-contact-list span {
   line-height: 1.4;
 }
+
+/* =====================================================
+   Footer – Mobile responsive (GRID FIX REAL)
+   ===================================================== */
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 2.5rem 1.25rem 1.5rem;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "logo logo"
+      "menu redes"
+      "contact contact";
+    gap: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    grid-area: logo;
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer-menu:first-of-type {
+    grid-area: menu;
+  }
+
+  .footer-menu:nth-of-type(2) {
+    grid-area: redes;
+  }
+
+  .footer-contact {
+    grid-area: contact;
+  }
+
+  .footer-info {
+    width: 200px;
+    margin: 0 auto;
+  }
+
+  .footer-list {
+    align-items: center;
+  }
+
+  .footer-contact-list li,
+  .footer-contact-list a {
+    justify-content: flex-start;
+  }
+
+  .footer-bottom {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    text-align: center;
+  }
+}
+
+
+
 
 
 
