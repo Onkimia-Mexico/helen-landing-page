@@ -1,47 +1,39 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <link
-      rel="stylesheet"
-      href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css"
-    />
-    <link 
-      rel='stylesheet' 
-      href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'
-    />
+    <meta charset="UTF-8" />
 
-    <link 
-      rel='stylesheet' 
-      href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'
-    />
-    
-    <link
-      rel="stylesheet"
-      href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css"
-    />
-
-    <link 
-      rel='stylesheet' 
-      href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'
-    />
-    
+    <!-- Preconnect fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     
+
+    <!-- Preload fonts -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <meta charset="UTF-8" />
+    <!-- Preload Flaticon (non-blocking) -->
+    <link rel="preload" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css" as="style" onload="this.rel='stylesheet'">
+
+    <noscript>
+      <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    </noscript>
+
+    <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Helen MS</title>
     <meta name="description" content="Plataforma médica integral con expediente electrónico y gestión de clínicas, integrada con Odoo para control contable y financiero eficiente.">
-
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
-    
   </body>
 </html>
