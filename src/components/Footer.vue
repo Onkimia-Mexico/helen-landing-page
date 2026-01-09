@@ -16,12 +16,13 @@
           src="../assets/Logotipo2.webp"
           alt="Helen MS"
           class="footer-info"
+          loading="lazy"
         />
       </div>
 
       <!-- Navigation menu -->
       <div class="footer-col footer-menu">
-        <h4>Menú</h4>
+        <h3 class="footer-title">Menú</h3>
         <ul class="footer-list">
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#servicios">Servicios</a></li>
@@ -31,9 +32,9 @@
       </div>
 
       <!-- Social media links -->
-      <div class="footer-col footer-menu">
-        <h4>Redes</h4>
-        <ul class="footer-list footer-social">
+      <div class="footer-col footer-social">
+        <h3 class="footer-title">Redes</h3>
+        <ul class="footer-list">
           <li>
             <a href="#">
               <i class="fi fi-brands-linkedin"></i>
@@ -57,8 +58,7 @@
 
       <!-- Contact information -->
       <div class="footer-col footer-contact">
-        <h4>Contacto</h4>
-
+        <h3 class="footer-title">Contacto</h3>
         <ul class="footer-list footer-contact-list">
           <li>
             <a href="mailto:contacto@helenms.com">

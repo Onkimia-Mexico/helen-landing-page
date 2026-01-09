@@ -98,6 +98,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
       class="contact-bg"
       alt=""
       aria-hidden="true"
+      loading="lazy"
     />
 
     <div class="contact-wrapper">

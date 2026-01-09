@@ -1151,18 +1151,6 @@ Click-based card flip for extended information ---------------- */
   gap: 2rem;
 }
 
-.footer-brand strong {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.2rem;
-}
-
-.footer-brand p {
-  font-family: 'Archivo', sans-serif;
-  font-size: 0.9rem;
-  color: #9ca3af;
-  max-width: 300px;
-}
-
 .footer-bottom {
   text-align: center;
   font-size: 0.8rem;
@@ -1185,6 +1173,17 @@ Click-based card flip for extended information ---------------- */
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-title {
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .footer-list li {
