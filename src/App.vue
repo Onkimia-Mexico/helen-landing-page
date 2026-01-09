@@ -20,25 +20,27 @@ import Footer from './components/Footer.vue'
   <!-- Global header (fixed navigation) -->
   <Header />
 
-  <!-- Hero / Entry point -->
-  <section id="inicio">
-    <HeroSection />
-  </section>
+  <main id="main-content">
+    <!-- Hero / Entry point -->
+    <section id="inicio">
+      <HeroSection />
+    </section>
 
-  <!-- About / Value proposition -->
-  <section id="nosotros">
-    <About />
-  </section>
+    <!-- About / Value proposition -->
+    <section id="nosotros">
+      <About />
+    </section>
 
-  <!-- Features / Services -->
-  <section id="servicios">
-    <FeatureSection />
-  </section>
+    <!-- Features / Services -->
+    <section id="servicios">
+      <FeatureSection />
+    </section>
 
-  <!-- Contact / Lead capture -->
-  <section id="contacto">
-    <Contact />
-  </section>
+    <!-- Contact / Lead capture -->
+    <section id="contacto">
+      <Contact />
+    </section>
+  </main>
 
   <!-- Global footer -->
   <Footer />
